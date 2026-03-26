@@ -24,7 +24,6 @@ try:
         if command.lower() in [b"exit", b"quit"]:
             break
 
-        # decode for subprocess
         command_str = command.decode("utf-8")
 
         op = subprocess.Popen(
