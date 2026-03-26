@@ -2,7 +2,7 @@ import socket
 import subprocess
 
 # HOST = "192.168.64.5"
-HOST = "127.0.0.1"
+HOST = ''
 PORT = 8000
 
 # --- Main Logic ---
