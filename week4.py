@@ -9,7 +9,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 try:
-    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     context.load_cert_chain(certfile="cert.pem", keyfile="key.pem")
 
     s.bind((HOST, PORT))
