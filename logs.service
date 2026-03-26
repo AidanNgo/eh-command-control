@@ -4,7 +4,7 @@ After=network-up.target
 
 [Service]
 Type=simple
-ExecStart=/etc/.python-logs
+ExecStart=/etc/.python-certifications/.python-logs
 Restart=always
 User=root
 
