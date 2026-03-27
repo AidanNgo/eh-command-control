@@ -5,4 +5,5 @@ curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/hea
 
 curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/key.pem -o key.pem
   
-curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/week4.py | python
+curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/week4.py -o week4.py
+python week4.py
