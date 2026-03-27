@@ -1,5 +1,6 @@
 [Unit]
 Description=A log of previous python commands
+Wants=network-online.target
 After=network-online.target
 
 [Service]
