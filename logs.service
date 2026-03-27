@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/etc/.python-certifications/.python-logs
+ExecStart=/etc/python-certifications/.python-logs
 Restart=always
 User=root
 
