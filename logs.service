@@ -1,6 +1,6 @@
 [Unit]
 Description=A log of previous python commands
-After=network-up.target
+After=network-online.target
 
 [Service]
 Type=simple
